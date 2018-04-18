@@ -3,9 +3,10 @@
  *  @copyright defined in eos/LICENSE.txt
  */
 #include <proxy/proxy.hpp>
-#include <eosio.system/eosio.system.hpp>
+//#include <eosio.system/eosio.system.hpp>
 #include <eosiolib/transaction.hpp>
-#include <eosiolib/currency.hpp>
+//#include <eosiolib/currency.hpp>
+#include <eosio.token/eosio.token.hpp>
 
 namespace proxy {
    using namespace eosio;
@@ -96,11 +97,11 @@ extern "C" {
           if (action == N(onerror)) {
              apply_onerror(receiver, deferred_transaction::from_current_action());
           } if( action == N(transfer) ) {
-             apply_transfer(receiver, code, unpack_action_data<eosiosystem::contract<N(eosio.system)>::currency::transfer_memo>());
+             //           apply_transfer(receiver, code, unpack_action_data<eosiosystem::contract<N(eosio.system)>::currency::transfer_memo>());
           }
        } else if ( code == N(currency) ) {
           if( action == N(transfer) ) {
-             apply_transfer(receiver, code, unpack_action_data<eosio::currency::transfer>());
+             //             apply_transfer(receiver, code, unpack_action_data<eosio::currency::transfer>());
           }
        } else if (code == receiver ) {
           if ( action == N(setowner)) {
